@@ -11,7 +11,7 @@ import SearchBar from "@/components/SearchBar.vue";
 
 export default {
   name: "HomePage",
-  components: SearchBar,
+  components: { SearchBar },
 };
 </script>
 <style lang="sass">
@@ -62,10 +62,14 @@ body::before
   margin:2rem auto auto auto
 
 .container__searchbar
-  @extend %containers
+
   width:95%
-  height:2rem
+  height:3rem
   margin:0.6rem auto auto auto
+  display: flex
+  align-items: center
+  justify-content: center
+  flex-direction: column
 
 
 h1
@@ -73,7 +77,7 @@ h1
   font-size: 3rem
   margin-top: 0rem
   margin-bottom: 0.5rem
-  text-align:center
+  text-align: center
   color: $mint-cream
 
 
