@@ -1,12 +1,17 @@
 <template>
-  <div class="container__searchbar"><p>Searchbar here</p></div>
+  <div class="container__searchbar">
+    <SearchBar />
+  </div>
   <div class="container__table"><h1>Table component here</h1></div>
 </template>
 
 <script>
 // @ is an alias to /src
+import SearchBar from "@/components/SearchBar.vue";
+
 export default {
   name: "HomePage",
+  components: SearchBar,
 };
 </script>
 <style lang="sass">
