@@ -1,9 +1,10 @@
 <template>
-  <div>
-  </div>
-
+  <router-view />
 </template>
-
-<style>
-
-</style>
+<script>
+// @ is an alias to /src
+export default {
+  name: "App",
+};
+</script>
+<style></style>
