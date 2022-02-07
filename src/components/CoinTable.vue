@@ -9,20 +9,24 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>TestCoin</td>
-          <td>24 USD</td>
-          <td>0,65%</td>
-          <td>11,40USD</td>
-        </tr>
+        <CoinRow
+          v-for="(coins, index) in coinsInfo"
+          :key="index"
+          :coins="coins"
+        />
       </tbody>
     </table>
   </div>
 </template>
 <script>
+import axios from "axios";
+import CoinRow from "@/components/CoinRow.vue";
+
 export default {
   name: "CoinTable",
+  components: {
+    CoinRow,
+  },
   data() {
     return {
       columns: [
@@ -47,12 +51,28 @@ export default {
           field: "24 Volume",
         },
       ],
-      entries: [],
+      coinsInfo: null,
+      loading: true,
+      errored: false,
     };
+  },
+  mounted() {
+    axios
+      .get(
+        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false"
+      )
+      .then((response) => {
+        this.coinsInfo = response.data;
+      })
+      .catch((error) => {
+        console.log(error);
+        this.errored = true;
+      })
+      .finally(() => (this.loading = false));
   },
 };
 </script>
-<style lang="sass" scoped>
+<style lang="sass">
 // color pallet
 $grey: #e5e5e5
 
