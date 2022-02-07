@@ -20,7 +20,7 @@
   </div>
 </template>
 <script>
-import axios from "axios";
+import APIService from "../services/APIservice";
 import CoinRow from "@/components/CoinRow.vue";
 
 export default {
@@ -67,7 +67,6 @@ export default {
   watch: {
     searchbarInput() {
       this.checkSearchInput();
-      // console.log("moj watch dziala: " + newSearchbarInput + "| old: "+oldSearchbarInput)
     },
   },
   methods: {
@@ -90,10 +89,7 @@ export default {
     },
   },
   mounted() {
-    axios
-      .get(
-        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false"
-      )
+    APIService.getCoins()      
       .then((response) => {
         this.coinsInfo = response.data;
         this.checkSearchInput();
