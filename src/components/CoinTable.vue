@@ -13,6 +13,7 @@
           v-for="(coins, index) in coinsInfo"
           :key="index"
           :coins="coins"
+          :index ="index"
         />
       </tbody>
     </table>
