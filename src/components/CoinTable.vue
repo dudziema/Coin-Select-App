@@ -3,11 +3,9 @@
     <table>
       <thead>
         <tr>
-          <th>#</th>
-          <th>Coin</th>
-          <th>Price</th>
-          <th>Price Change</th>
-          <th>24 Volume</th>
+          <th v-for="(column, index) in columns" :key="index">
+            {{ column.field }}
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -39,6 +37,33 @@
 <script>
 export default {
   name: "CoinTable",
+  data() {
+    return {
+      columns: [
+        {
+          label: "#",
+          field: "#",
+        },
+        {
+          label: "coin-name",
+          field: "Coin",
+        },
+        {
+          label: "coin-price",
+          field: "Price",
+        },
+        {
+          label: "coin_price_change",
+          field: "Price change",
+        },
+        {
+          label: "24_volume",
+          field: "24 Volume",
+        },
+      ],
+      entries: [],
+    };
+  },
 };
 </script>
 <style lang="sass" scoped>
