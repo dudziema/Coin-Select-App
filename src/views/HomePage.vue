@@ -2,16 +2,22 @@
   <div class="container__searchbar">
     <SearchBar />
   </div>
-  <div class="container__table"><h1>Table component here</h1></div>
+  <div class="container__table">
+    <CoinTable />
+  </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import SearchBar from "@/components/SearchBar.vue";
+import CoinTable from "@/components/CoinTable.vue";
 
 export default {
   name: "HomePage",
-  components: { SearchBar },
+  components: {
+    SearchBar,
+    CoinTable,
+  },
 };
 </script>
 <style lang="sass">
