@@ -10,10 +10,10 @@
       </thead>
       <tbody>
         <CoinRow
-          v-for="(coins, index) in coinsInfo"
+          v-for="(coins, index) in filteredCoins"
           :key="index"
           :coins="coins"
-          :index ="index"
+          :index="index"
         />
       </tbody>
     </table>
@@ -53,9 +53,41 @@ export default {
         },
       ],
       coinsInfo: null,
+      filteredCoins: [],
       loading: true,
       errored: false,
     };
+  },
+  props: {
+    searchbarInput: {
+      type: String,
+      required: true,
+    },
+  },
+  watch: {
+    searchbarInput() {
+      this.checkSearchInput();
+      // console.log("moj watch dziala: " + newSearchbarInput + "| old: "+oldSearchbarInput)
+    },
+  },
+  methods: {
+    checkSearchInput() {
+      console.log("coin table test" + this.searchbarInput);
+      if (this.searchbarInput.length > 0) {
+        this.filteredCoins = this.coinsInfo.filter((coin) => {
+          const searchPhrase = this.searchbarInput.toLowerCase();
+          const { name, symbol } = coin;
+          if (
+            name.toLowerCase().indexOf(searchPhrase) >= 0 ||
+            symbol.toLowerCase().indexOf(searchPhrase) >= 0
+          ) {
+            return true;
+          }
+        });
+      } else {
+        this.filteredCoins = this.coinsInfo;
+      }
+    },
   },
   mounted() {
     axios
@@ -64,6 +96,7 @@ export default {
       )
       .then((response) => {
         this.coinsInfo = response.data;
+        this.checkSearchInput();
       })
       .catch((error) => {
         console.log(error);
@@ -130,5 +163,4 @@ $grey: #e5e5e5
         border-bottom: 1px solid rgba(0,0,0,.12)
     td:nth-child(1)
         opacity:0.5
-
 </style>

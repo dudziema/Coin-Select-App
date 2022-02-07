@@ -1,11 +1,28 @@
 <template>
   <div class="container__searchbar--input">
-    <input id="searchbar" type="text" placeholder="Search coin" />
+    <input
+      @change="handleChange"
+      @keydown="handleChange"
+      v-model="searchCoin"
+      id="searchbar"
+      type="text"
+      placeholder="Search coin"
+    />
   </div>
 </template>
 <script>
 export default {
   name: "SearchBar",
+  data() {
+    return {
+      searchCoin: "",
+    };
+  },
+  methods: {
+    handleChange() {
+      this.$emit("search", this.searchCoin);
+    },
+  },
 };
 </script>
 <style lang="sass" scoped>

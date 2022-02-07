@@ -1,9 +1,9 @@
 <template>
   <div class="container__searchbar">
-    <SearchBar />
+    <SearchBar @search="handleSearch" />
   </div>
   <div class="container__table">
-    <CoinTable />
+    <CoinTable :searchbarInput="searchbarInput" />
   </div>
 </template>
 
@@ -14,9 +14,20 @@ import CoinTable from "@/components/CoinTable.vue";
 
 export default {
   name: "HomePage",
+  data() {
+    return {
+      searchbarInput: "",
+    };
+  },
+
   components: {
     SearchBar,
     CoinTable,
+  },
+  methods: {
+    handleSearch(value) {
+      this.searchbarInput = value;
+    },
   },
 };
 </script>
