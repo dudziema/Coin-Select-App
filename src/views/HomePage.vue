@@ -22,19 +22,7 @@ export default {
 </script>
 <style lang="sass">
 // color pallet
-$mint-cream: #F4FFFD
-$oxford-blue: #011936
-$black-coral: #465362
-$naples-yellow: #F9DC5C
-$red-crayola:#ED254E
-
-
-
-
-%containers
-  background-color: $oxford-blue
-  border-radius: 18px
-  position:relative
+$grey: #e5e5e5
 
 
 *,
@@ -48,7 +36,7 @@ body
   font-weight:400
   line-height:1rem
   margin:0
-  background-color: $mint-cream
+  background-color: $grey
 
 body::before
   content:""
@@ -58,7 +46,7 @@ body::before
   height:100%
   width:100%
   z-index:-1
-  background-color: $mint-cream
+  background-color: $grey
 
 
 .container__table
@@ -84,7 +72,7 @@ h1
   margin-top: 0rem
   margin-bottom: 0.5rem
   text-align: center
-  color: $mint-cream
+  color: $grey
 
 
 
@@ -95,5 +83,5 @@ h2
 
 p
   text-align: center
-  color: $mint-cream
+  color: $grey
 </style>
