@@ -62,7 +62,7 @@ body::before
 
 
 .container__table
-  @extend %containers
+
   width:95%
   height:35rem
   margin:2rem auto auto auto
