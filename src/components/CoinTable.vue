@@ -128,4 +128,7 @@ $grey: #e5e5e5
         vertical-align: inherit
         padding:0.5rem
         border-bottom: 1px solid rgba(0,0,0,.12)
+    td:nth-child(1)
+        opacity:0.5
+
 </style>
