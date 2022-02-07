@@ -3,7 +3,7 @@
     <SearchBar @search="handleSearch" />
   </div>
   <div class="container__table">
-    <CoinTable :searchbarInput="searchbarInput" />
+    <CoinTable :searchbarInput="searchbarInput" :page="page" />
   </div>
 </template>
 
@@ -27,6 +27,17 @@ export default {
   methods: {
     handleSearch(value) {
       this.searchbarInput = value;
+    },
+  },
+  props: {
+    page: {
+      type: Number,
+      required: true,
+    },
+  },
+  watch: {
+    page() {
+      console.log("test");
     },
   },
 };

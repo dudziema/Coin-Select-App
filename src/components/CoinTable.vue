@@ -17,11 +17,24 @@
         />
       </tbody>
     </table>
+    <router-link
+      :to="{ name: 'HomePage', query: { page: page - 1 } }"
+      rel="prev"
+      v-if="page != 1"
+      >Prev Page</router-link
+    >
+    <router-link
+      :to="{ name: 'HomePage', query: { page: page + 1 } }"
+      rel="next"
+      >Next Page</router-link
+    >
   </div>
 </template>
 <script>
 import APIService from "../services/APIservice";
 import CoinRow from "@/components/CoinRow.vue";
+
+const ITEMS_PER_PAGE = 10;
 
 export default {
   name: "CoinTable",
@@ -63,15 +76,22 @@ export default {
       type: String,
       required: true,
     },
+    page: {
+      type: Number,
+      required: true,
+    },
   },
   watch: {
     searchbarInput() {
       this.checkSearchInput();
     },
+    page() {
+      this.getCoinsFromServer();
+      this.checkSearchInput();
+    },
   },
   methods: {
     checkSearchInput() {
-      console.log("coin table test" + this.searchbarInput);
       if (this.searchbarInput.length > 0) {
         this.filteredCoins = this.coinsInfo.filter((coin) => {
           const searchPhrase = this.searchbarInput.toLowerCase();
@@ -87,18 +107,21 @@ export default {
         this.filteredCoins = this.coinsInfo;
       }
     },
+    getCoinsFromServer() {
+      APIService.getCoins(ITEMS_PER_PAGE, this.page)
+        .then((response) => {
+          this.coinsInfo = response.data;
+          this.checkSearchInput();
+        })
+        .catch((error) => {
+          console.log(error);
+          this.errored = true;
+        })
+        .finally(() => (this.loading = false));
+    },
   },
   mounted() {
-    APIService.getCoins()      
-      .then((response) => {
-        this.coinsInfo = response.data;
-        this.checkSearchInput();
-      })
-      .catch((error) => {
-        console.log(error);
-        this.errored = true;
-      })
-      .finally(() => (this.loading = false));
+    this.getCoinsFromServer();
   },
 };
 </script>

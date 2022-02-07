@@ -2,7 +2,7 @@
   <div class="container__searchbar--input">
     <input
       @change="handleChange"
-      @keydown="handleChange"
+      @keyup="handleChange"
       v-model="searchCoin"
       id="searchbar"
       type="text"
