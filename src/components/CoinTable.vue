@@ -16,20 +16,6 @@
           <td>0,65%</td>
           <td>11,40USD</td>
         </tr>
-        <tr>
-          <td>2</td>
-          <td>TestCoin</td>
-          <td>24 USD</td>
-          <td>0,65%</td>
-          <td>11,40USD</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>TestCoin</td>
-          <td>24 USD</td>
-          <td>0,65%</td>
-          <td>11,40USD</td>
-        </tr>
       </tbody>
     </table>
   </div>
