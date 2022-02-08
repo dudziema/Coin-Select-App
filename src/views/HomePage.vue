@@ -103,6 +103,12 @@ p
   text-align: center
   color: black
 
+@media (max-width: 28.75em)
+  body
+    font-size:0.5rem
+  h1
+    font-size: 0.8rem
+
 a:link
     text-decoration: none
     color:#021691

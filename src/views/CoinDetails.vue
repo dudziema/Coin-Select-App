@@ -94,8 +94,11 @@ $black: #000000
     background-color: $white
     border-radius: 18px
 
-p
-    margin: 1rem
+@media (max-width: 28.75em)
+    .details__container--coin
+        margin: 0rem
+    p
+        margin: 1rem
 
 #description
     text-align: left

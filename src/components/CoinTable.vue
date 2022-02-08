@@ -195,6 +195,10 @@ td
 td:nth-child(1)
   opacity:0.5
 
+@media (max-width: 28.75em)
+  td 
+    padding: 0rem
+
 .table__pagination
   display: flex
   justify-content: center

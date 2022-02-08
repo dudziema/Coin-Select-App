@@ -57,9 +57,10 @@ $grey: #e5e5e5
 $green: #006A4E
 $red: #EF0107
 
+
 img
     width:20px
-    margin: 0.2rem 01rem
+    margin: 0.2rem 0.1rem
 
 span
     opacity:0.5
@@ -70,4 +71,9 @@ span
 
 .positive
     color: $green
+
+@media (max-width: 28.75em)
+  img
+    width:10px
+    margin: 0.2rem 0.1rem
 </style>

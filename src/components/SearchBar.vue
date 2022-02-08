@@ -45,7 +45,6 @@ export default {
       background: white
       font-size: 20px
 
-
       &::-webkit-input-placeholder
           font-size: 20px
           color: rgba(0,0,0,.50)
