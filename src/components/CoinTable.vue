@@ -17,16 +17,20 @@
         />
       </tbody>
     </table>
+  </div>
+  <div class="container__pagination">
     <router-link
+      id="previous-page"
       :to="{ name: 'HomePage', query: { page: page - 1 } }"
       rel="prev"
       v-if="page != 1"
-      >Prev Page</router-link
+      >&#60;&#60; Previous</router-link
     >
     <router-link
+    id="next-page"
       :to="{ name: 'HomePage', query: { page: page + 1 } }"
       rel="next"
-      >Next Page</router-link
+      >Next &#62;&#62;</router-link
     >
   </div>
 </template>
@@ -134,6 +138,7 @@ $grey: #e5e5e5
     position: relative
     width:100%
     display: flex
+    flex-direction: row
 
     table
         width:100%
@@ -180,6 +185,27 @@ $grey: #e5e5e5
         vertical-align: inherit
         padding:0.5rem
         border-bottom: 1px solid rgba(0,0,0,.12)
+
     td:nth-child(1)
         opacity:0.5
+
+.container__pagination
+    display: flex
+    justify-content: center
+    align-items: center
+    align-content: center
+    flex-wrap: nowrap
+    text-decoration: none
+    color: black
+    padding-top: 1rem
+    a 
+      flex: 1
+      text-decoration: none
+      color: black
+
+#previous-page
+  text-align: left
+
+#next-page
+  text-align: right
 </style>
