@@ -10,10 +10,10 @@ const routes = [
     props: (route) => ({ page: parseInt(route.query.page) || 1 }),
   },
   {
-    path: "/coin/bitcoin",
+    path: "/coin/:coinId",
     name: "CoinDetails",
+    props: true,
     component: CoinDetails,
-
   },
 ];
 

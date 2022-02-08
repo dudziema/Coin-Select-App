@@ -9,14 +9,12 @@
         </tr>
       </thead>
       <tbody>
-          <router-link to="/coin/bitcoin">
         <CoinRow
           v-for="(coins, index) in filteredCoins"
           :key="index"
           :coins="coins"
           :index="index"
         />
-        </router-link>
       </tbody>
     </table>
   </div>
@@ -29,7 +27,7 @@
       >&#60;&#60; Previous</router-link
     >
     <router-link
-    id="next-page"
+      id="next-page"
       :to="{ name: 'HomePage', query: { page: page + 1 } }"
       rel="next"
       >Next &#62;&#62;</router-link
@@ -200,7 +198,7 @@ $grey: #e5e5e5
     text-decoration: none
     color: black
     padding-top: 1rem
-    a 
+    a
       flex: 1
       text-decoration: none
       color: black

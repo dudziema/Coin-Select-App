@@ -1,5 +1,5 @@
 <template>
-  <tr>
+  <tr @click="goToCoinDetails(coins.id)">
     <td>{{ index + 1 }}</td>
     <td>
       <img :src="coins.image" />{{ coins.name }}
@@ -14,6 +14,7 @@
       {{ coins.price_change_percentage_24h }} &#37;
     </td>
     <td>{{ tousandsCoverter(coins.total_volume) }} &#8364;</td>
+    <!-- </router-link> -->
   </tr>
 </template>
 <script>
@@ -38,6 +39,12 @@ export default {
     },
     symbolToUpperCase(symbol) {
       return symbol.toUpperCase();
+    },
+    goToCoinDetails() {
+      this.$router.push({
+        name: "CoinDetails",
+        params: { coinId: this.coins.id },
+      });
     },
   },
 };

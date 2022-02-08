@@ -47,13 +47,15 @@ export default {
 $grey: #e5e5e5
 
 
+
+
 *,
 *::before,
 *::after
   box-sizing:border-box
 
 body
-  font-family:Arial, Helvetica, sans-serif
+  font-family: Poppins-Regular
   font-size:1.2rem
   font-weight:400
   line-height:1rem
@@ -106,5 +108,4 @@ h2
 p
   text-align: center
   color: black
-  
 </style>

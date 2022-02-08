@@ -7,4 +7,11 @@ export default {
   name: "App",
 };
 </script>
-<style></style>
+<style lang="sass" scoped>
+@font-face
+  font-family: "Poppins-Bold"
+  src: url("./assets/fonts/Poppins-Bold.ttf")
+@font-face
+  font-family: "Poppins-Regular"
+  src: url(./assets/fonts/Poppins-Regular.ttf)
+</style>
