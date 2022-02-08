@@ -1,5 +1,5 @@
 <template>
-  <div class="container__table--element">
+  <div class="table__container">
     <table>
       <thead>
         <tr>
@@ -10,7 +10,7 @@
       </thead>
       <tbody>
         <CoinRow
-          v-for="(coins, index) in filteredCoins"
+          v-for="(coins, index) in filteredCoinsList"
           :key="index"
           :coins="coins"
           :index="index"
@@ -18,7 +18,7 @@
       </tbody>
     </table>
   </div>
-  <div class="container__pagination">
+  <div class="table__pagination">
     <router-link
       id="previous-page"
       :to="{ name: 'HomePage', query: { page: page - 1 } }"
@@ -34,6 +34,7 @@
     >
   </div>
 </template>
+
 <script>
 import APIService from "../services/APIservice";
 import CoinRow from "@/components/CoinRow.vue";
@@ -69,8 +70,8 @@ export default {
           field: "24 Volume",
         },
       ],
-      coinsInfo: null,
-      filteredCoins: [],
+      coinsList: null,
+      filteredCoinsList: [],
       loading: true,
       errored: false,
     };
@@ -97,7 +98,7 @@ export default {
   methods: {
     checkSearchInput() {
       if (this.searchbarInput.length > 0) {
-        this.filteredCoins = this.coinsInfo.filter((coin) => {
+        this.filteredCoinsList = this.coinsList.filter((coin) => {
           const searchPhrase = this.searchbarInput.toLowerCase();
           const { name, symbol } = coin;
           if (
@@ -108,13 +109,13 @@ export default {
           }
         });
       } else {
-        this.filteredCoins = this.coinsInfo;
+        this.filteredCoinsList = this.coinsList;
       }
     },
     getCoinsFromServer() {
       APIService.getCoins(ITEMS_PER_PAGE, this.page)
         .then((response) => {
-          this.coinsInfo = response.data;
+          this.coinsList = response.data;
           this.checkSearchInput();
         })
         .catch((error) => {
@@ -130,78 +131,84 @@ export default {
 };
 </script>
 <style lang="sass">
+
 // color pallet
 $grey: #e5e5e5
+$white: #F0F0F0
+$black: #000000
 
 
-.container__table--element
-    position: relative
-    width:100%
-    display: flex
-    flex-direction: row
+.table__container
+  position: relative
+  width:100%
+  display: flex
+  flex-direction: row
 
-    table
-        width:100%
-        max-width: 100%
-        margin-bottom:20px
-        background-color: $grey
-        border-spacing: 0
-        overflow:hidden
-        border-collapse: collapse
+table
+  width:100%
+  max-width: 100%
+  margin-bottom:20px
+  background-color: $grey
+  border-spacing: 0
+  overflow:hidden
+  border-collapse: collapse
+  display: table
+  border-spacing: 2px
+  margin: 0 1rem 0 1rem
 
-        display: table
-        border-spacing: 2px
-        margin: 0 1rem 0 1rem
+thead
+  background-color: $grey
+  color: $black
+  height: 2rem
 
-    thead
-        background-color: $grey
-        color: black
-        height: 2rem
+tbody
+  display: table-row-group
+  vertical-align: middle
+  border-color: inherit
 
-    tbody
-        display: table-row-group
-        vertical-align: middle
-        border-color: inherit
+tr
+  display: table-row
+  vertical-align: inherit
+  border-color: inherit
+  height: 3rem
 
-    tr
-        display: table-row
-        vertical-align: inherit
-        border-color: inherit
-        height: 3rem
+tr:hover
+  background-color: $white
 
-    th
-        text-align: left
-        padding:0.5rem
-        border-bottom: 1px solid black
+th
+  text-align: left
+  padding:0.5rem
+  border-bottom: 1px solid $black
 
-    th:nth-child(1)
-        border-radius: 0.5rem 0 0 0.5rem
+th:nth-child(1)
+  border-radius: 0.5rem 0 0 0.5rem
 
-    th:nth-child(5)
-        border-radius:  0 0.5rem 0.5rem 0
+th:nth-child(5)
+  border-radius:  0 0.5rem 0.5rem 0
 
-    td
-        display: table-cell
-        vertical-align: inherit
-        padding:0.5rem
-        border-bottom: 1px solid rgba(0,0,0,.12)
+td
+  display: table-cell
+  vertical-align: inherit
+  padding:0.5rem
+  border-bottom: 1px solid rgba(0,0,0,.12)
 
-    td:nth-child(1)
-        opacity:0.5
+td:nth-child(1)
+  opacity:0.5
 
-.container__pagination
-    display: flex
-    justify-content: center
-    align-items: center
-    align-content: center
-    flex-wrap: nowrap
+.table__pagination
+  display: flex
+  justify-content: center
+  align-items: center
+  align-content: center
+  flex-wrap: nowrap
+  text-decoration: none
+  color: black
+  padding-top: 1rem
+
+  a
+    flex: 1
     text-decoration: none
     color: black
-    padding-top: 1rem
-    a
-      flex: 1
-      text-decoration: none
-      color: black
 
 #previous-page
   text-align: left

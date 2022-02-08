@@ -1,5 +1,5 @@
 <template>
-  <div class="container__searchbar--input">
+  <div class="searchbar__container">
     <input
       @change="handleChange"
       @keyup="handleChange"
@@ -10,6 +10,7 @@
     />
   </div>
 </template>
+
 <script>
 export default {
   name: "SearchBar",
@@ -25,9 +26,10 @@ export default {
   },
 };
 </script>
+
 <style lang="sass" scoped>
 
-.container__searchbar--input
+.searchbar__container
     position: relative
     width:100%
     display: flex

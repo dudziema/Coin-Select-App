@@ -8,10 +8,13 @@ export default {
 };
 </script>
 <style lang="sass" scoped>
+
+//Imported fonts
 @font-face
   font-family: "Poppins-Bold"
   src: url("./assets/fonts/Poppins-Bold.ttf")
 @font-face
   font-family: "Poppins-Regular"
   src: url(./assets/fonts/Poppins-Regular.ttf)
+
 </style>

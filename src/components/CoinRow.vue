@@ -14,9 +14,9 @@
       {{ coins.price_change_percentage_24h }} &#37;
     </td>
     <td>{{ tousandsCoverter(coins.total_volume) }} &#8364;</td>
-    <!-- </router-link> -->
   </tr>
 </template>
+
 <script>
 export default {
   name: "CoinRow",
@@ -49,20 +49,25 @@ export default {
   },
 };
 </script>
+
 <style lang="sass" scoped>
+
+// Color pallet
 $grey: #e5e5e5
 $green: #006A4E
 $red: #EF0107
 
-
 img
     width:20px
     margin: 0.2rem 01rem
+
 span
     opacity:0.5
     margin-left:1rem
+
 .negative
     color: $red
+
 .positive
     color: $green
 </style>

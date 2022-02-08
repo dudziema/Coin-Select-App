@@ -1,14 +1,13 @@
 <template>
-  <div class="container__searchbar">
+  <div class="searchbar__div">
     <SearchBar @search="handleSearch" />
   </div>
-  <div class="container__table">
+  <div class="table__div">
     <CoinTable :searchbarInput="searchbarInput" :page="page" />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
 import SearchBar from "@/components/SearchBar.vue";
 import CoinTable from "@/components/CoinTable.vue";
 
@@ -19,7 +18,6 @@ export default {
       searchbarInput: "",
     };
   },
-
   components: {
     SearchBar,
     CoinTable,
@@ -43,11 +41,13 @@ export default {
 };
 </script>
 <style lang="sass">
+
 // color pallet
 $grey: #e5e5e5
+$white: #F0F0F0
+$black: #000000
 
-
-
+//Global style
 
 *,
 *::before,
@@ -72,15 +72,12 @@ body::before
   z-index:-1
   background-color: $grey
 
-
-.container__table
-
+.table__div
   width:95%
   height:35rem
   margin:2rem auto auto auto
 
-.container__searchbar
-
+.searchbar__div
   width:95%
   height:3rem
   margin:0.6rem auto auto auto
@@ -88,7 +85,6 @@ body::before
   align-items: center
   justify-content: center
   flex-direction: column
-
 
 h1
   padding:2rem
@@ -98,8 +94,6 @@ h1
   text-align: center
   color: black
 
-
-
 h2
   padding:1rem
   margin: 0 0 0.5rem 0
@@ -108,4 +102,20 @@ h2
 p
   text-align: center
   color: black
+
+a:link
+    text-decoration: none
+    color:#021691
+
+a:visited
+    text-decoration: none
+    color: black
+
+a:hover
+    text-decoration: none
+    color: black
+
+a:active
+    text-decoration: none
+    color: black
 </style>

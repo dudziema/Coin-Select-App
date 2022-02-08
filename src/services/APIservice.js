@@ -16,7 +16,7 @@ export default {
       },
     });
   },
-  getCoin(coinId) {
+  getCoinDetails(coinId) {
     return apiClient.get("/" + coinId);
   },
 };
