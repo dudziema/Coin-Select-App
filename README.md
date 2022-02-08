@@ -1,4 +1,4 @@
-# Coin Select App 🚀
+## Coin Select App 🚀
 
 Coin Select App is a frontend application where you can  check the price of cryptocurrency and details about the selected coin. It's a recruitment task for Exeno company. 
 
@@ -15,9 +15,9 @@ Live: [dudziema.com/exeno](https://dudziema.com/exeno/)
 
 **Tech stack:**
 
-   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original-wordmark.svg" width="40" />
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg" width="40"/>
-  <img src=" https://user-images.githubusercontent.com/8939680/57233884-20344080-6fe5-11e9-8df3-0df1282e1574.png" width="80"/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original-wordmark.svg" width="40" /><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg" width="40"/>
+    <br/>
+  <img src="https://axios-http.com/assets/logo.svg" width="80"/>
 
 
 
