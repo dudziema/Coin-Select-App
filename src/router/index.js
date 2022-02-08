@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomePage from "../views/HomePage.vue";
+import CoinDetails from "../views/CoinDetails.vue";
 
 const routes = [
   {
@@ -7,6 +8,12 @@ const routes = [
     name: "HomePage",
     component: HomePage,
     props: (route) => ({ page: parseInt(route.query.page) || 1 }),
+  },
+  {
+    path: "/coin/bitcoin",
+    name: "CoinDetails",
+    component: CoinDetails,
+
   },
 ];
 

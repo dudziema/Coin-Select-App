@@ -94,7 +94,7 @@ h1
   margin-top: 0rem
   margin-bottom: 0.5rem
   text-align: center
-  color: $grey
+  color: black
 
 
 
@@ -105,5 +105,6 @@ h2
 
 p
   text-align: center
-  color: $grey
+  color: black
+  
 </style>

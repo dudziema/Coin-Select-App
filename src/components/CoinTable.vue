@@ -9,12 +9,14 @@
         </tr>
       </thead>
       <tbody>
+          <router-link to="/coin/bitcoin">
         <CoinRow
           v-for="(coins, index) in filteredCoins"
           :key="index"
           :coins="coins"
           :index="index"
         />
+        </router-link>
       </tbody>
     </table>
   </div>
