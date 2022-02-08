@@ -33,11 +33,6 @@ export default {
       required: true,
     },
   },
-  watch: {
-    page() {
-      console.log("test");
-    },
-  },
 };
 </script>
 <style lang="sass">
