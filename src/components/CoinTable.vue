@@ -196,7 +196,7 @@ td:nth-child(1)
   opacity:0.5
 
 @media (max-width: 28.75em)
-  td 
+  td
     padding: 0rem
 
 .table__pagination

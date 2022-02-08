@@ -16,5 +16,4 @@ export default {
 @font-face
   font-family: "Poppins-Regular"
   src: url(./assets/fonts/Poppins-Regular.ttf)
-
 </style>
